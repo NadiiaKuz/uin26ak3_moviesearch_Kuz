@@ -4,7 +4,7 @@ export default function Home(){
     const [search, setSearch] = useState()
 
     const baseUrl = `http://www.omdbapi.com/?s=${search}&apikey=`
-    const apiKey = 'bdbf4b1f'
+    const apiKey = import.meta.env.VITE_APP_API_KEY
 
     const getMovies = async()=>{
         try{
