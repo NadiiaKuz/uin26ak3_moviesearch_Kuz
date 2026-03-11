@@ -5,13 +5,13 @@ export default function Layout({ children }) {
         <>
             <header>
                 <nav className="main-nav">
-                    <Link to="/">Home</Link>
+                    <Link to="/">Forside</Link>
 
                 </nav>
             </header>
             {children}
             <footer>
-                <p>2026 Utvikling av interaktive nettsteder - Movieserch</p>
+                <p>2026 Utvikling av interaktive nettsteder - Moviesearch</p>
             </footer>
         </>
     )

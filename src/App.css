@@ -40,3 +40,32 @@
 .read-the-docs {
   color: #888;
 }
+
+.main-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+footer {
+  margin-top: 3rem;
+}
+
+.movie-card {
+  display: grid;
+  border: 1px solid #f481fc;
+  height: 100%;
+  padding: 1rem;
+  place-items: center;
+
+  img {
+    padding: 1rem;
+  }
+}
+
+.movie-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}

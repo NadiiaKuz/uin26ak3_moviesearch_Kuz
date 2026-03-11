@@ -1,6 +1,14 @@
 import { useState } from "react"
+import MovieCard from "../components/MovieCard"
+import MovieList from "../components/MovieList"
 
 export default function Home(){
+const dummyMovies = [
+    {imdbID: "1", Title: "Harry Potter", Year: "2001", Poster: "../vite.svg"},
+    {imdbID: "2", Title: "Harry Potter 2", Year: "2002", Poster: "../vite.svg"},
+    {imdbID: "3", Title: "Harry Potter 3", Year: "2003", Poster: "../vite.svg"},
+]
+
     const [search, setSearch] = useState()
 
     const baseUrl = `http://www.omdbapi.com/?s=${search}&apikey=`
@@ -31,6 +39,8 @@ export default function Home(){
                 </label>
             </form>
             <button onClick={getMovies}>Søk</button>
+
+            <MovieList movies={dummyMovies} heading="Dummy Movies" />
         </main>
 
     )
