@@ -1,29 +1,31 @@
-import { useState } from "react"
-import MovieCard from "../components/MovieCard"
+import { useEffect, useState } from "react"
 import MovieList from "../components/MovieList"
 
 export default function Home(){
-const dummyMovies = [
-    {imdbID: "1", Title: "Harry Potter", Year: "2001", Poster: "../vite.svg"},
-    {imdbID: "2", Title: "Harry Potter 2", Year: "2002", Poster: "../vite.svg"},
-    {imdbID: "3", Title: "Harry Potter 3", Year: "2003", Poster: "../vite.svg"},
-]
 
+    const [movies, setMovies] = useState([])
     const [search, setSearch] = useState()
 
-    const baseUrl = `http://www.omdbapi.com/?s=${search}&apikey=`
-    const apiKey = import.meta.env.VITE_APP_API_KEY
+    const defaultSearch = "James Bond"
 
+    const baseUrl = `http://www.omdbapi.com/?s=${defaultSearch}&apikey=`
+    const apiKey = import.meta.env.VITE_APP_API_KEY
+        
     const getMovies = async()=>{
         try{
             const response = await fetch(`${baseUrl}${apiKey}`)
             const data = await response.json()
-            console.log(data)
+            setMovies(data?.Search)
         }
         catch(err){
             console.error(err);
         }
     }
+
+    useEffect(()=>{
+        setSearch(defaultSearch)
+        getMovies()
+    }, [])
 
     const handleChange = (e)=>{
         setSearch(e.target.value)
@@ -40,9 +42,8 @@ const dummyMovies = [
             </form>
             <button onClick={getMovies}>Søk</button>
 
-            <MovieList movies={dummyMovies} heading="Dummy Movies" />
+            <MovieList movies={movies} heading="James Bond filmer" />
         </main>
-
     )
     
     

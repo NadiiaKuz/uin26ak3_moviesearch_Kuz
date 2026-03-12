@@ -58,14 +58,30 @@ footer {
   padding: 1rem;
   place-items: center;
 
+  h3 {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+
   img {
     padding: 1rem;
   }
 }
 
+section {
+  width: 100%;
+}
+
 .movie-list {
   list-style: none;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
   gap: 1rem;
+
+  li {
+    box-sizing: border-box;
+  }
+
 }
