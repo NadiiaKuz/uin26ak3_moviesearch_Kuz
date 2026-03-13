@@ -6,7 +6,7 @@ export default function Home(){
     const [movies, setMovies] = useState([])
     const [search, setSearch] = useState()
 
-    const defaultSearch = "James Bond"
+    const defaultSearch = encodeURIComponent("James Bond")
 
     const baseUrl = `http://www.omdbapi.com/?s=${defaultSearch}&apikey=`
     const apiKey = import.meta.env.VITE_APP_API_KEY
@@ -16,6 +16,7 @@ export default function Home(){
             const response = await fetch(`${baseUrl}${apiKey}`)
             const data = await response.json()
             setMovies(data?.Search)
+            console.log(data);
         }
         catch(err){
             console.error(err);

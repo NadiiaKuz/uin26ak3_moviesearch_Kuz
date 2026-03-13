@@ -1,15 +1,25 @@
 import { Link } from "react-router-dom"
+import {useState } from "react"
 
 export default function MovieCard({movie}){
-    const slug = encodeURIComponent(movie.Title)
+    const [imageError, setImageError] = useState(false)
+
+    const posterExists = movie.Poster && !imageError
+
     return (
-        <li>
-            <article className="movie-card">
-                <h3>{movie.Title}</h3>
-                <img src={movie.Poster} alt={`Poster for ${movie.Title}`} />
-                <p>År: {movie.Year}</p>
-                <Link to={`/${slug}`}>Se detaljer</Link>
-            </article>
-        </li>
+        <article className="movie-card">
+            <h3>{movie.Title}</h3>
+            
+            {posterExists ? (
+            <img
+                src={movie.Poster}
+                alt={`Poster for ${movie.Title}`}
+                onError={() => setImageError(true)}
+            />) : 
+            (<p className="poster-missing">Ingen plakat tilgjengelig</p>)}
+
+            <p>År: {movie.Year}</p>
+            <Link to={`/${movie.imdbID}`}>Se detaljer</Link>
+        </article>
     )
 }

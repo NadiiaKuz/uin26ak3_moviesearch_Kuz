@@ -52,20 +52,22 @@ footer {
 }
 
 .movie-card {
-  display: grid;
   border: 1px solid #f481fc;
-  height: 100%;
-  padding: 1rem;
-  place-items: center;
+  width: 24%;
+  flex-grow: 1;
+  padding: 2rem;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  text-align: center;
 
-  h3 {
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    hyphens: auto;
+  img{
+    max-width: 50%;
   }
 
-  img {
-    padding: 1rem;
+  >*{
+    width: 100%;
   }
 }
 
@@ -74,14 +76,12 @@ section {
 }
 
 .movie-list {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-  gap: 1rem;
-
-  li {
+  h2 {
     box-sizing: border-box;
   }
 
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem;
 }
