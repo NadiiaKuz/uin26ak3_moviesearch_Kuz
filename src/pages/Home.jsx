@@ -14,7 +14,7 @@ export default function Home(){
             // Leger til wildcard * for å få relevante resultater fordi OMDb API ved søkeret "harry po" returnerer "Movie not found!",
             // mens "harry po*" returnerer relevante resultater.
             const query = trimmedSearch?.length >= 3 ? `${trimmedSearch}*` : "James Bond"
-            const baseUrl = `http://www.omdbapi.com/?s=${encodeURIComponent(query)}&apikey=`
+            const baseUrl = `http://www.omdbapi.com/?s=${encodeURIComponent(query)}&type=movie&apikey=`
             
             const response = await fetch(`${baseUrl}${apiKey}`)
             const data = await response.json()
