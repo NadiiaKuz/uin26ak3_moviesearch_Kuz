@@ -55,6 +55,7 @@ footer {
   border: 1px solid #f481fc;
   background-color: #422f44;
   width: 24%;
+  min-width: 250px;
   flex-grow: 1;
   max-width: 300px;
   padding: 0;
@@ -67,7 +68,6 @@ footer {
   article {
     display: flex;
     flex-direction: column;
-    height: 100%;
   }
 
   img, .poster-missing{
@@ -108,7 +108,7 @@ section {
 
   display: flex;
   flex-wrap: wrap;
-  justify-content: ce;
+  justify-content: center;
   gap: 1rem;
 }
 
