@@ -5,7 +5,9 @@ export default function MovieCard({movie}){
     const [imageError, setImageError] = useState(false)
 
     // Sjekker om det finnes en gyldig plakat-URL før vi prøver å vise bildet
-    // fordi OMDb API returnerer "Not Found" når plakat finnes ikke, og det vil fører til en 404-feil når vi prøver å laste bildet.
+    // fordi OMDb API prøver å laste lenken, eksisterer bildet faktisk ikke lenger på Amazon sin bildedatabase, 
+    // og returnerer "Not Found" når plakat finnes ikke, og det fører til en 404-feil når vi prøver å laste bildet.
+    // Men denne 404-feilen i konsollen påvirker ikke brukerens opplevelse
     const posterExists = movie.Poster && !imageError && movie.Poster !== "N/A"
 
     return (

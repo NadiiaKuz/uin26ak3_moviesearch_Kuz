@@ -7,11 +7,13 @@ export default function Movie(){
     const [movieInfo, setMovieInfo] = useState()
     const [imageError, setImageError] = useState(false)
 
+    // Sjekker om det finnes en gyldig plakat-URL før vi prøver å vise bildet
+    // fordi OMDb API prøver å laste lenken, eksisterer bildet faktisk ikke lenger på Amazon sin bildedatabase, 
+    // og returnerer "Not Found" når plakat finnes ikke, og det fører til en 404-feil når vi prøver å laste bildet.
+    // Men denne 404-feilen i konsollen påvirker ikke brukerens opplevelse
     const posterExists = movieInfo?.Poster && !imageError && movieInfo?.Poster !== "N/A"
 
     const apiKey = import.meta.env.VITE_APP_API_KEY
-
-    console.log(movie)
 
     const getMovie = async()=>{
         const response = await fetch(`https://www.omdbapi.com/?t=${movie}&apikey=${apiKey}`)
